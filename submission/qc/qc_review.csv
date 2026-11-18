@@ -1,0 +1,7 @@
+image,object_id,error_type,reviewer,note
+img_003.jpg,,bo_sot,Trợ lý AI,"Người đội nón trắng, mặc áo xám và quần đỏ ở xa, ngay bên phải người mặc áo hồng đi xe máy. Phần thân nhìn thấy cao hơn 20 px."
+img_006.jpg,,bo_sot,Trợ lý AI,"Trẻ áo xanh quay lưng, ngồi trước bàn ở góc dưới bên phải. Có thể thấy đầu và thân."
+img_006.jpg,,bo_sot,Trợ lý AI,"Trẻ áo vàng họa tiết tím ngồi phía sau bàn bên phải. Thấy đầu và phần thân phía trên bàn, khác người áo xanh tiền cảnh."
+img_014.jpg,92,sai_vi_tri_kich_thuoc,Trợ lý AI,"Box người lái xe tay ga xanh bắt đầu ở y khoảng 286, trong khi đỉnh mũ ở y khoảng 303. Mép trên thừa khoảng 17 px."
+img_031.jpg,324,sai_vi_tri_kich_thuoc,Trợ lý AI,"Mép phải box người bán dừng ở x khoảng 511, cắt một phần cẳng tay đưa sang phải ngay trên giỏ trái cây."
+img_035.jpg,,bo_sot,Trợ lý AI,"Người lái xích lô đỏ ở giữa bên phải. Đầu và thân phía trên ghế lộ rõ, mới có box xe, thiếu box người lái."
