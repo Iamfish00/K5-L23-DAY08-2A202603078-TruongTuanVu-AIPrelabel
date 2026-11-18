@@ -5,7 +5,7 @@
 - Lớp: L2
 - Tài khoản GitHub: Iamfish00
 - Repo bài nộp (URL): https://github.com/Iamfish00/K5-L23-DAY08-2A202603078-TruongTuanVu-AIPrelabel
-- Commit nội dung bài (hash): `8463334f69453e6a45519ed8c498fbe8fdad205b`
+- Commit nội dung bài (hash): `19a41eef3153cb197322777d9e8362b324783704`
 - Máy: Windows, chạy mô hình trên CPU.
 - CVAT (Docker): v2.81.0.
 
@@ -17,3 +17,4 @@
 - Thời lượng ước tính ngày 17/11/2026: Gold 17:00–17:30, 30 phút / 4 ảnh = 7,50 phút/ảnh. Batch 18:30–19:00, 30 phút / 24 ảnh = 1,25 phút/ảnh.
 - Lỗi QC trong mẫu: 5/5 ảnh (100,0%) và 6/60 đối tượng (10,0%).
 - **Quyết định: Rework.** Có lỗi ở 5/5 ảnh mẫu, trong đó 4/6 lỗi là bỏ sót vật.
+- Bài nâng cao B3: CVAT ghi tự động 36 box trên 4 ảnh bằng YOLO26n. Cả 36/36 box ghép cùng lớp với lượt offline. [Chi tiết](submission/REPORT.md#bài-nâng-cao--b3-gán-nhãn-trực-tiếp-trên-cvat)
