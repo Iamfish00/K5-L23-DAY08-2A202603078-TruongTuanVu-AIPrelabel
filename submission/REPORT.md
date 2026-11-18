@@ -95,3 +95,23 @@ Cả ba lượt chạy MobileSAM (SAM 1, `mobile_sam.pt`) trên CPU bằng `sam2
 - Dữ liệu đầu vào của CP4 lấy từ các lượt chạy CPU r03 và r04 trong `work/prelabel/`. Các lượt thử r05–r08 có lệnh và kết quả trong `model_log.csv`.
 - Khi kiểm lại sau buổi làm bài, CVAT trả HTTP 502 trong lúc Docker khởi động. API hoạt động sau khi CVAT lên xong và đọc lại được hai job.
 - Đề xuất cho lần sau: rà riêng người đứng ở hậu cảnh và người lái bị xe che, vì bỏ sót người chiếm 4/6 lỗi trong mẫu QC.
+
+### Bài nâng cao — B3: Gán nhãn trực tiếp trên CVAT
+
+Thử YOLO26n qua `cvat-cli 2.81.0` trên task riêng `Day08 Bonus B3 YOLO26n` (task 4, job 4). Cả hai lượt dùng cùng trọng số `yolo26n.pt`, CPU, `imgsz=1024` và ngưỡng confidence 0,30. Lượt B3 đọc ảnh từ task và ghi thẳng box nguồn `auto` vào CVAT. Lượt offline đọc ảnh từ đĩa và ghi file COCO để đối chiếu.
+
+```bash
+cvat-cli --server-host http://localhost --server-port 8080 --auth <USER> task auto-annotate 4 --function-file scripts/cvat_function_yolo26.py -p size=str:n -p seg=bool:false -p device=str:cpu --conf-threshold 0.30
+python scripts/prelabel.py --model yolo26 --size n --classes person,bicycle,motorbike,car,bus,truck --images img_004.jpg img_013.jpg img_031.jpg img_032.jpg --conf 0.30 --device cpu --imgsz 1024 --out work/prelabel/bonus_b3_offline
+```
+
+| Ảnh | Box offline | Box trên CVAT | Cặp ghép cùng lớp, IoU ≥ 0,50 | IoU thấp nhất |
+|---|---:|---:|---:|---:|
+| `img_004.jpg` | 5 | 5 | 5 / 5 | 1.000000 |
+| `img_013.jpg` | 7 | 7 | 7 / 7 | 0.999911 |
+| `img_031.jpg` | 5 | 5 | 5 / 5 | 0.999925 |
+| `img_032.jpg` | 19 | 19 | 19 / 19 | 0.999534 |
+
+- CVAT ghi **36 box tự động trên 4 ảnh**. Khi so bản COCO xuất từ CVAT với bản offline, có **36/36 cặp ghép** cùng lớp và IoU thấp nhất là 0,999534. Đây là phép kiểm mức khớp giữa hai cách chạy cùng mô hình. [Số liệu và SHA-256](qc/bonus_cvat_b3.json)
+- Cả hai cách chạy có chung lỗi. Ở `img_004.jpg`, hai box `truck` bao tuk-tuk. Ở `img_013.jpg`, xe tuk-tuk tiền cảnh thiếu box. Ở `img_031.jpg`, hai box `person` bao vùng quần áo treo. Hàm B3 hiện chỉ ánh xạ 6 lớp COCO của bài. Cần dùng YOLOE hoặc rà thủ công cho `three_wheeler`.
+- Lượt B3 mất **13,90 giây tổng cộng** gồm khởi động, tải ảnh và ghi nhãn vào CVAT. Log offline ghi **1,93 giây/ảnh** cho vòng suy luận và **5,9 giây** nạp mô hình. Hai số thời gian đo các phạm vi khác nhau. Với 4 ảnh và một lượt thử, phép so sánh tập trung vào luồng ghi nhãn và mức khớp của đầu ra.

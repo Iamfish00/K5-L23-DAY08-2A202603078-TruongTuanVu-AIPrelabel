@@ -1,0 +1,98 @@
+{
+  "task_id": 4,
+  "job_id": 4,
+  "source": {
+    "auto": 36
+  },
+  "rows": [
+    {
+      "image": "img_004.jpg",
+      "offline": 5,
+      "cvat": 5,
+      "matched": 5,
+      "min_iou": 1.0,
+      "exact_2dp": 5,
+      "missing": 0,
+      "extra": 0,
+      "classes": {
+        "person": 3,
+        "truck": 2
+      }
+    },
+    {
+      "image": "img_013.jpg",
+      "offline": 7,
+      "cvat": 7,
+      "matched": 7,
+      "min_iou": 0.999911,
+      "exact_2dp": 3,
+      "missing": 0,
+      "extra": 0,
+      "classes": {
+        "person": 4,
+        "truck": 2,
+        "car": 1
+      }
+    },
+    {
+      "image": "img_031.jpg",
+      "offline": 5,
+      "cvat": 5,
+      "matched": 5,
+      "min_iou": 0.999925,
+      "exact_2dp": 2,
+      "missing": 0,
+      "extra": 0,
+      "classes": {
+        "person": 4,
+        "bicycle": 1
+      }
+    },
+    {
+      "image": "img_032.jpg",
+      "offline": 19,
+      "cvat": 19,
+      "matched": 19,
+      "min_iou": 0.999534,
+      "exact_2dp": 8,
+      "missing": 0,
+      "extra": 0,
+      "classes": {
+        "person": 15,
+        "car": 1,
+        "bicycle": 3
+      }
+    }
+  ],
+  "core_unchanged": true,
+  "weights_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "offline_sha256": "0c99513c4fad923bdaea122f15821fa79374ed1d3ce8fda5ffc6dd1dedf95f1a",
+  "cvat_coco_sha256": "b2afda6c647cc7a1063d44faf5c1c8b77637ac9e5e0103cf8aa847f754932ef0",
+  "offline_timing": 1.93,
+  "cvat_run": {
+    "task_id": 4,
+    "exit_code": 0,
+    "cli_wall_seconds": 13.903,
+    "cli_version": "2.81.0",
+    "ultralytics_version": "8.4.215",
+    "images": 4,
+    "imgsz": 1024,
+    "confidence": 0.3
+  },
+  "input_sha256": {
+    "img_004.jpg": "c07d387358c1d958a61392c8eb4f4d7e77d4b11a9befa7127e82277d2fc72cc1",
+    "img_013.jpg": "82163a7e6c4ca7e3420acf3a3402e70040e99e9bc0b727a8951b68b6c4987c8b",
+    "img_031.jpg": "bf1f55bed168c30b3fa7f92fc7298f619497d93fb49183cf1be629103063ba42",
+    "img_032.jpg": "7e952a0bcddbc85f4f9bec093aa9b9d27519683596f649bad9ea5088ca746c4a"
+  },
+  "match": {
+    "iou_minimum": 0.5,
+    "same_class": true
+  },
+  "device": "cpu",
+  "model": "YOLO26n",
+  "timing_scope": {
+    "offline_timing": "seconds per image in offline inference loop; excludes initialization",
+    "cli_wall_seconds": "total CLI wall time including startup, data transfer and annotation upload"
+  }
+}
